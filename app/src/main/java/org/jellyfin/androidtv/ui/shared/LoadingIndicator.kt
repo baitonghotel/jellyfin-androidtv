@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.fillMaxWidth
 import org.jellyfin.androidtv.ui.base.JellyfinTheme
 
 @Composable
@@ -24,7 +25,8 @@ fun LoadingIndicator(
         verticalArrangement = Arrangement.Center
     ) {
         CircularProgressIndicator(
-            color = JellyfinTheme.colorScheme.onBackground
+            color = JellyfinTheme.colorScheme.onBackground,
+            modifier = Modifier.fillMaxWidth(0.2f)
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(

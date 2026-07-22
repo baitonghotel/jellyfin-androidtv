@@ -677,10 +677,22 @@ public class PlaybackController implements PlaybackControllerNotifiable {
 
     public void startSpinner() {
         spinnerOff = false;
+        if (mFragment != null && mFragment.getActivity() != null) {
+            android.view.View v = mFragment.getActivity().findViewById(org.jellyfin.androidtv.R.id.loading_indicator_view);
+            if (v != null) {
+                mHandler.post(() -> v.setVisibility(android.view.View.VISIBLE));
+            }
+        }
     }
 
     public void stopSpinner() {
         spinnerOff = true;
+        if (mFragment != null && mFragment.getActivity() != null) {
+            android.view.View v = mFragment.getActivity().findViewById(org.jellyfin.androidtv.R.id.loading_indicator_view);
+            if (v != null) {
+                mHandler.post(() -> v.setVisibility(android.view.View.GONE));
+            }
+        }
     }
 
     public int getAudioStreamIndex() {
