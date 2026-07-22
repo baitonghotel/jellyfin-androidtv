@@ -90,6 +90,7 @@ class RewriteMediaManager(
 						PlayState.STOPPED -> PlaybackController.PlaybackState.IDLE
 						PlayState.PLAYING -> PlaybackController.PlaybackState.PLAYING
 						PlayState.PAUSED -> PlaybackController.PlaybackState.PAUSED
+						PlayState.BUFFERING -> PlaybackController.PlaybackState.BUFFERING
 						PlayState.ERROR -> PlaybackController.PlaybackState.ERROR
 					}, currentAudioItem
 				)

@@ -113,6 +113,7 @@ class ExoPlayerBackend(
 		override fun onIsPlayingChanged(isPlaying: Boolean) {
 			val state = when {
 				isPlaying -> PlayState.PLAYING
+				exoPlayer.playbackState == Player.STATE_BUFFERING -> PlayState.BUFFERING
 				exoPlayer.playbackState == Player.STATE_IDLE || exoPlayer.playbackState == Player.STATE_ENDED -> PlayState.STOPPED
 				else -> PlayState.PAUSED
 			}

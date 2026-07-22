@@ -34,6 +34,7 @@ class PlaySessionService(
 				PlayState.PLAYING -> sendStreamStart()
 				PlayState.STOPPED -> sendStreamStop()
 				PlayState.PAUSED -> sendStreamUpdate()
+				PlayState.BUFFERING -> sendStreamUpdate()
 				PlayState.ERROR -> sendStreamStop()
 			}
 		}.launchIn(coroutineScope)

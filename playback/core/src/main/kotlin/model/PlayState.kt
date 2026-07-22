@@ -4,5 +4,6 @@ enum class PlayState {
 	STOPPED,
 	PLAYING,
 	PAUSED,
+	BUFFERING,
 	ERROR,
 }

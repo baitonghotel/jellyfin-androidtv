@@ -87,7 +87,8 @@ private fun PlayPauseButton(
 				PlayState.STOPPED,
 				PlayState.ERROR -> playbackManager.state.play()
 
-				PlayState.PLAYING -> playbackManager.state.pause()
+				PlayState.PLAYING,
+				PlayState.BUFFERING -> playbackManager.state.pause()
 				PlayState.PAUSED -> playbackManager.state.unpause()
 			}
 		},
@@ -99,7 +100,8 @@ private fun PlayPauseButton(
 	) {
 		AnimatedContent(playState) { playState ->
 			when (playState) {
-				PlayState.PLAYING -> {
+				PlayState.PLAYING,
+				PlayState.BUFFERING -> {
 					Icon(
 						imageVector = ImageVector.vectorResource(R.drawable.ic_pause),
 						contentDescription = stringResource(R.string.lbl_pause),

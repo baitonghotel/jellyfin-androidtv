@@ -19,6 +19,7 @@ import org.jellyfin.androidtv.ui.player.base.PlayerSubtitles
 import org.jellyfin.androidtv.ui.player.base.PlayerSurface
 import org.jellyfin.playback.core.PlaybackManager
 import org.jellyfin.playback.core.model.PlayState
+import org.jellyfin.androidtv.ui.shared.LoadingIndicator
 import org.koin.compose.koinInject
 
 private const val DefaultVideoAspectRatio = 16f / 9f
@@ -38,6 +39,8 @@ fun VideoPlayerScreen() {
 	ScreensaverLock(
 		enabled = playing,
 	)
+
+	val playState by playbackManager.state.playState.collectAsState()
 
 	val videoSize by playbackManager.state.videoSize.collectAsState()
 	val aspectRatio = videoSize.aspectRatio.takeIf { !it.isNaN() && it > 0f } ?: DefaultVideoAspectRatio
@@ -66,5 +69,11 @@ fun VideoPlayerScreen() {
 				.fillMaxSize()
 				.align(Alignment.Center)
 		)
+
+		if (playState == PlayState.BUFFERING) {
+			LoadingIndicator(
+				modifier = Modifier.align(Alignment.Center)
+			)
+		}
 	}
 }

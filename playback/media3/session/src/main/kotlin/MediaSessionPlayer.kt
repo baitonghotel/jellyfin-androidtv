@@ -109,6 +109,7 @@ internal class MediaSessionPlayer(
 					PlayState.STOPPED -> STATE_IDLE
 					PlayState.PLAYING -> STATE_READY
 					PlayState.PAUSED -> STATE_READY
+					PlayState.BUFFERING -> STATE_BUFFERING
 					PlayState.ERROR -> STATE_ENDED
 				})
 
