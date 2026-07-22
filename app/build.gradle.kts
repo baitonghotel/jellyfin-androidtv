@@ -61,7 +61,7 @@ android {
 			resValue("string", "app_search_suggest_intent_data", "content://tv.baitong.app.content/intent")
 
 			// Set flavored application name
-			resValue("string", "app_name", "@string/app_name_release")
+			resValue("string", "app_name", "baitong TV")
 
 			buildConfigField("boolean", "DEVELOPMENT", "false")
 
@@ -78,7 +78,7 @@ android {
 			resValue("string", "app_search_suggest_intent_data", "content://tv.baitong.app${applicationIdSuffix}.content/intent")
 
 			// Set flavored application name
-			resValue("string", "app_name", "@string/app_name_debug")
+			resValue("string", "app_name", "baitong TV Debug")
 
 			buildConfigField("boolean", "DEVELOPMENT", (defaultConfig.versionCode!! < 100).toString())
 		}
@@ -96,7 +96,7 @@ android {
 	}
 }
 
-base.archivesName.set("jellyfin-androidtv-v${project.getVersionName()}")
+base.archivesName.set("baitong-tv-v${project.getVersionName()}")
 
 tasks.register("versionTxt") {
 	val path = layout.buildDirectory.asFile.get().resolve("version.txt")
