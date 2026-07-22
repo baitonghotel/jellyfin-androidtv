@@ -679,7 +679,8 @@ public class PlaybackController implements PlaybackControllerNotifiable {
         spinnerOff = false;
         if (mFragment != null && mFragment.getActivity() != null) {
             android.view.View v = mFragment.getActivity().findViewById(org.jellyfin.androidtv.R.id.loading_indicator_view);
-            if (v != null) {
+            if (v instanceof org.jellyfin.androidtv.ui.shared.LoadingIndicatorView) {
+                ((org.jellyfin.androidtv.ui.shared.LoadingIndicatorView) v).setCurrentItem(getCurrentlyPlayingItem());
                 mHandler.post(() -> v.setVisibility(android.view.View.VISIBLE));
             }
         }
@@ -689,7 +690,8 @@ public class PlaybackController implements PlaybackControllerNotifiable {
         spinnerOff = true;
         if (mFragment != null && mFragment.getActivity() != null) {
             android.view.View v = mFragment.getActivity().findViewById(org.jellyfin.androidtv.R.id.loading_indicator_view);
-            if (v != null) {
+            if (v instanceof org.jellyfin.androidtv.ui.shared.LoadingIndicatorView) {
+                ((org.jellyfin.androidtv.ui.shared.LoadingIndicatorView) v).setCurrentItem(null);
                 mHandler.post(() -> v.setVisibility(android.view.View.GONE));
             }
         }
