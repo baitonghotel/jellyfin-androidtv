@@ -49,7 +49,7 @@ fun LoadingIndicator(
                 AsyncImage(
                     url = imageUrl,
                     modifier = Modifier.fillMaxSize().alpha(0.5f),
-                    scaleType = ImageView.ScaleType.CENTER_CROP
+                    scaleType = ImageView.ScaleType.FIT_CENTER
                 )
             }
         }
