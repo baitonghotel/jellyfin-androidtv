@@ -1295,6 +1295,7 @@ public class CustomPlaybackOverlayFragment extends Fragment implements LiveTvGui
     private void prepareChannelAdapter() {
         // create quick channel change row
         TvManager.loadAllChannels(this, response -> {
+            if (!isAdded()) return null;
             List<BaseItemDto> channels = TvManager.getAllChannels();
             if (channels == null) return null;
             ArrayObjectAdapter channelAdapter = new ArrayObjectAdapter(new ChannelCardPresenter());
